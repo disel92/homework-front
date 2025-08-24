@@ -1,16 +1,16 @@
-import {ChangeEvent} from "react";
-import {log} from "node:util";
+import React, {ChangeEvent} from "react";
+
 
 
 type InputPropsType = {
   currentText: string // НУЖНО ПРОТИПИЗИРОВАТЬ
-  setCurrentText: string // НУЖНО ПРОТИПИЗИРОВАТЬ
+  setCurrentText: Function // НУЖНО ПРОТИПИЗИРОВАТЬ
 };
 
 export const Input = (props: InputPropsType) => {
 
-  const onChangeHandler = () => {
-    return (console.log('нажат инпут'))
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    props.setCurrentText(event.currentTarget.value)
   };
 
   return (

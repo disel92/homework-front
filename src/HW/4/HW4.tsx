@@ -15,7 +15,6 @@ export const HW4 = () => {
   // ❗ Массив с данными не трогаем! Текст не меняем !
 
   const [currentText, setCurrentText] = useState('');
-
   const [texts, setTexts] = useState<string[]>([
     'То, что вы делаете по ночам, то и делает вас богатым. (Аль Капоне)',
   ]);
@@ -33,16 +32,16 @@ export const HW4 = () => {
         <h1 id={'hw04-default-text'}>Здесь появится новое дело</h1>
       )}
 
-      <Input  setCurrentText={'setCurrentText'} currentText={'введи текст'}/>
+      <Input currentText={currentText} setCurrentText={setCurrentText}/>
 
-      <Button name={'сохранить'} callBack={handleSave}/>
+      <Button name={'Сохранить'} callBack={handleSave} />
 
       <h1 style={{ marginTop: '50px' }}>СПИСОК ДЕЛ НА ДЕНЬ:</h1>
 
       <ol id={'hw04-tasks'}>
         {texts.map((el, index) => {
           return (
-            <li key={index} id={`hw04-task-${index}`} className={(index % 2 == 0) ? s.chetNechet : ''}>
+            <li key={index} id={`hw04-task-${index}`} className={index % 2 === 0 ? s.chetNechet : ''}>
               {el}
             </li>
           );

@@ -1,4 +1,3 @@
-import {log} from "node:util";
 
 type ButtonPropsType = {
   callBack: () => void // НУЖНО ПРОТИПИЗИРОВАТЬ
@@ -7,7 +6,7 @@ type ButtonPropsType = {
 
 export const Button = (props: ButtonPropsType) => {
   const callBackHandler = () => {
-    return (console.log('нажата кнопка'))// НУЖНО ДОПИСАТЬ
+    return  props.callBack()// НУЖНО ДОПИСАТЬ
   };
 
   return (
